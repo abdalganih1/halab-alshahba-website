@@ -1037,6 +1037,14 @@ p {
     z-index: var(--z-sticky);
   }
 
+  .nav__actions .btn {
+    display: none;
+  }
+
+  .nav__actions {
+    gap: 0.5rem !important;
+  }
+
   .nav__toggle.active span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
