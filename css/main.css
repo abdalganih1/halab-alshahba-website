@@ -594,6 +594,94 @@ p {
   flex-shrink: 0;
 }
 
+/* Generator Gallery */
+.generator-gallery {
+  position: relative;
+}
+
+.generator-gallery__main {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--surface-alt);
+  overflow: hidden;
+}
+
+.generator-gallery__main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.generator-card:hover .generator-gallery__main img {
+  transform: scale(1.05);
+}
+
+.generator-gallery__thumbs {
+  display: flex;
+  gap: var(--space-xs);
+  padding: var(--space-xs);
+  background: var(--secondary);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--secondary);
+}
+
+.generator-gallery__thumbs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.generator-gallery__thumbs::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+.generator-gallery__thumbs::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: var(--radius-full);
+}
+
+.generator-gallery__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all var(--transition-fast);
+  border: 2px solid transparent;
+}
+
+.generator-gallery__thumb:hover {
+  opacity: 0.9;
+}
+
+.generator-gallery__thumb.active {
+  opacity: 1;
+  border-color: var(--primary);
+}
+
+.generator-gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Brand Badge */
+.generator-card__brand {
+  position: absolute;
+  bottom: var(--space-md);
+  inset-inline-end: var(--space-md);
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--text-light);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 /* Features Strip */
 .features-strip {
   display: grid;

@@ -1,0 +1,213 @@
+{
+  "generators": [
+    {
+      "id": "cummins-75kva-2020",
+      "brand": "CUMMINS",
+      "model": "C75D5",
+      "kva": 75,
+      "year": 2020,
+      "condition": "مستعمل",
+      "type": "صامت",
+      "engine": "Cummins 4BTA3.9-G2",
+      "alternator": "Stamford",
+      "frequency": "50 Hz",
+      "voltage": "400V / 230V",
+      "fuelType": "ديزل",
+      "fuelTank": "150 لتر",
+      "runtime": "10+ ساعات",
+      "dimensions": "2400 × 1000 × 1500 مم",
+      "weight": "1200 كغ",
+      "warranty": "6 أشهر",
+      "description": "مولد CUMMINS بقدرة 75 KVA موديل 2020 بحالة ممتازة. محرك ديزل قوي وموثوق مع كابينة صامتة للاستخدام في المناطق السكنية والتجارية. تم إجراء صيانة شاملة وجاهز للتشغيل الفوري.",
+      "features": [
+        "كابينة صامتة عازلة للصوت",
+        "لوحة تحكم رقمية",
+        "نظام تشغيل تلقائي ATS",
+        "حماية من الحمل الزائد",
+        "مؤشر مستوى الوقود",
+        "نظام تبريد بالماء"
+      ],
+      "images": [
+        "images/generators/cummins/75kva-2020/cummins-75kva-2020-01.jpg",
+        "images/generators/cummins/75kva-2020/cummins-75kva-2020-02.jpg",
+        "images/generators/cummins/75kva-2020/cummins-75kva-2020-03.jpg",
+        "images/generators/cummins/75kva-2020/cummins-75kva-2020-04.jpg",
+        "images/generators/cummins/75kva-2020/cummins-75kva-2020-05.jpg"
+      ]
+    },
+    {
+      "id": "caterpillar-15kva-2020",
+      "brand": "CATERPILLAR",
+      "model": "DE22E3",
+      "kva": 15,
+      "year": 2020,
+      "condition": "مستعمل",
+      "type": "مفتوح",
+      "engine": "Caterpillar C1.5",
+      "alternator": "Leroy-Somer",
+      "frequency": "50 Hz",
+      "voltage": "400V / 230V",
+      "fuelType": "ديزل",
+      "fuelTank": "50 لتر",
+      "runtime": "12+ ساعات",
+      "dimensions": "1200 × 700 × 900 مم",
+      "weight": "450 كغ",
+      "warranty": "3 أشهر",
+      "description": "مولد CATERPILLAR صغير الحجم بقدرة 15 KVA مثالي للاستخدامات الخفيفة والمنزلية. محرك كاتربيلر الأصلي بكفاءة عالية واستهلاك وقود اقتصادي.",
+      "features": [
+        "حجم صغير وسهل النقل",
+        "محرك كاتربيلر أصلي",
+        "استهلاك وقود اقتصادي",
+        "صيانة سهلة",
+        "لوحة تحكم بسيطة"
+      ],
+      "images": [
+        "images/generators/caterpillar/15kva-2020/cat-15kva-2020-01.jpg",
+        "images/generators/caterpillar/15kva-2020/cat-15kva-2020-02.jpg",
+        "images/generators/caterpillar/15kva-2020/cat-15kva-2020-03.jpg",
+        "images/generators/caterpillar/15kva-2020/cat-15kva-2020-04.jpg",
+        "images/generators/caterpillar/15kva-2020/cat-15kva-2020-05.jpg"
+      ]
+    },
+    {
+      "id": "perkins-100kva",
+      "brand": "PERKINS",
+      "model": "1104A-44TG2",
+      "kva": 100,
+      "year": 2021,
+      "condition": "جديد ومستعمل",
+      "type": "صامت",
+      "engine": "Perkins 1104A-44TG2",
+      "alternator": "Stamford",
+      "frequency": "50 Hz",
+      "voltage": "400V / 230V",
+      "fuelType": "ديزل",
+      "fuelTank": "200 لتر",
+      "runtime": "10+ ساعات",
+      "dimensions": "2600 × 1100 × 1600 مم",
+      "weight": "1500 كغ",
+      "warranty": "سنة كاملة",
+      "description": "مولد PERKINS بقدرة 100 KVA بكابينة صامتة عالية الجودة. متوفر جديد ومستعمل. محرك بيركنز البريطاني الشهير بموثوقيته العالية وعمره الطويل.",
+      "features": [
+        "كابينة صامتة فاخرة",
+        "محرك بيركنز بريطاني",
+        "ألترناتور ستامفورد",
+        "لوحة تحكم DeepSea",
+        "نظام ATS متكامل",
+        "ضمان شامل"
+      ],
+      "images": [
+        "images/generators/perkins/unknown-model/perkins-01.jpg",
+        "images/generators/perkins/unknown-model/perkins-02.jpg",
+        "images/generators/perkins/unknown-model/perkins-03.jpg",
+        "images/generators/perkins/unknown-model/perkins-04.jpg",
+        "images/generators/perkins/unknown-model/perkins-05.jpg"
+      ]
+    },
+    {
+      "id": "cummins-200kva-2019",
+      "brand": "CUMMINS",
+      "model": "C200D5",
+      "kva": 200,
+      "year": 2019,
+      "condition": "مستعمل",
+      "type": "صامت",
+      "engine": "Cummins 6BTAA5.9-G2",
+      "alternator": "Leroy-Somer",
+      "frequency": "50 Hz",
+      "voltage": "400V / 230V",
+      "fuelType": "ديزل",
+      "fuelTank": "400 لتر",
+      "runtime": "12+ ساعات",
+      "dimensions": "3200 × 1200 × 1800 مم",
+      "weight": "2500 كغ",
+      "warranty": "6 أشهر",
+      "description": "مولد CUMMINS بقدرة 200 KVA موديل 2019 مناسب للمشاريع المتوسطة والكبيرة. محرك كمنز 6 سلندر قوي ومتين مع ألترناتور ليروي سومر الفرنسي.",
+      "features": [
+        "محرك 6 سلندر قوي",
+        "ألترناتور ليروي سومر",
+        "خزان وقود كبير",
+        "نظام تشغيل تلقائي",
+        "حماية متعددة المستويات",
+        "سهولة الصيانة"
+      ],
+      "images": [
+        "images/generators/cummins/200kva-2019/cummins-200kva-2019-01.jpg",
+        "images/generators/cummins/200kva-2019/cummins-200kva-2019-02.jpg",
+        "images/generators/cummins/200kva-2019/cummins-200kva-2019-03.jpg",
+        "images/generators/cummins/200kva-2019/cummins-200kva-2019-04.jpg",
+        "images/generators/cummins/200kva-2019/cummins-200kva-2019-05.jpg"
+      ]
+    },
+    {
+      "id": "iveco-625kva-2024",
+      "brand": "IVECO",
+      "model": "NEF67TE2",
+      "kva": 625,
+      "year": 2024,
+      "condition": "جديد",
+      "type": "مفتوح",
+      "engine": "IVECO NEF 67TE2",
+      "alternator": "Stamford",
+      "frequency": "50 Hz",
+      "voltage": "400V / 230V",
+      "fuelType": "ديزل",
+      "fuelTank": "800 لتر",
+      "runtime": "8+ ساعات",
+      "dimensions": "4500 × 1800 × 2200 مم",
+      "weight": "5500 كغ",
+      "warranty": "سنتان",
+      "description": "مولد IVECO صناعي ثقيل بقدرة 625 KVA موديل 2024 جديد. مثالي للمشاريع الصناعية الكبيرة والمصانع. محرك إيفيكو الإيطالي بتقنية عالية وكفاءة ممتازة.",
+      "features": [
+        "محرك إيفيكو إيطالي",
+        "قدرة صناعية عالية",
+        "نظام تبريد متطور",
+        "لوحة تحكم ذكية",
+        "ضمان المصنع",
+        "دعم فني متواصل"
+      ],
+      "images": [
+        "images/generators/iveco/625kva-2024/iveco-625kva-2024-01.jpg",
+        "images/generators/iveco/625kva-2024/iveco-625kva-2024-02.jpg",
+        "images/generators/iveco/625kva-2024/iveco-625kva-2024-03.jpg",
+        "images/generators/iveco/625kva-2024/iveco-625kva-2024-04.jpg",
+        "images/generators/iveco/625kva-2024/iveco-625kva-2024-05.jpg"
+      ]
+    },
+    {
+      "id": "iveco-1500kva-2023",
+      "brand": "IVECO",
+      "model": "C87TE1D",
+      "kva": 1500,
+      "year": 2023,
+      "condition": "جديد ومستعمل",
+      "type": "مفتوح",
+      "engine": "IVECO Cursor 87",
+      "alternator": "Stamford HCI634",
+      "frequency": "50 Hz",
+      "voltage": "400V / 230V",
+      "fuelType": "ديزل",
+      "fuelTank": "1500 لتر",
+      "runtime": "6+ ساعات",
+      "dimensions": "5800 × 2200 × 2600 مم",
+      "weight": "9000 كغ",
+      "warranty": "سنتان",
+      "description": "مولد IVECO صناعي ضخم بقدرة 1500 KVA للمشاريع العملاقة والمجمعات الصناعية. محرك Cursor 87 الأقوى في فئته مع ألترناتور ستامفورد الكبير.",
+      "features": [
+        "قدرة ضخمة 1500 KVA",
+        "محرك Cursor 87",
+        "ألترناتور ستامفورد HCI634",
+        "نظام إدارة متقدم",
+        "مراقبة عن بعد",
+        "كفاءة وقود عالية"
+      ],
+      "images": [
+        "images/generators/iveco/1500kva-2023/iveco-1500kva-2023-01.jpg",
+        "images/generators/iveco/1500kva-2023/iveco-1500kva-2023-02.jpg",
+        "images/generators/iveco/1500kva-2023/iveco-1500kva-2023-03.jpg",
+        "images/generators/iveco/1500kva-2023/iveco-1500kva-2023-04.jpg",
+        "images/generators/iveco/1500kva-2023/iveco-1500kva-2023-05.jpg"
+      ]
+    }
+  ]
+}

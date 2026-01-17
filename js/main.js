@@ -7,7 +7,37 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavigation();
     initStickyHeader();
     initScrollAnimations();
+    initGeneratorGallery();
 });
+
+/**
+ * Generator Image Gallery
+ */
+function initGeneratorGallery() {
+    const galleries = document.querySelectorAll('.generator-gallery');
+
+    galleries.forEach(gallery => {
+        const mainImg = gallery.querySelector('.generator-gallery__main img');
+        const thumbs = gallery.querySelectorAll('.generator-gallery__thumb');
+
+        if (!mainImg || !thumbs.length) return;
+
+        thumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                // Update main image
+                const thumbImg = thumb.querySelector('img');
+                if (thumbImg) {
+                    mainImg.src = thumbImg.src;
+                    mainImg.alt = thumbImg.alt || '';
+                }
+
+                // Update active state
+                thumbs.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+            });
+        });
+    });
+}
 
 /**
  * Mobile Navigation Toggle

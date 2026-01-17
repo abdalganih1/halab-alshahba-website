@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>تفاصيل المنتج | حلب الشهباء</title>
+    <meta name="description" content="تفاصيل ومواصفات المولد الكهربائي - حلب الشهباء للمولدات والمعدات الثقيلة">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        /* Prevent horizontal scroll */
+        html,
+        body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        /* Product Page Specific Styles */
+        .product-page {
+            padding: 2rem 0 4rem;
+            min-height: 60vh;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        @media (max-width: 968px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-gallery {
+                position: relative !important;
+                top: auto !important;
+            }
+
+            .product-title {
+                font-size: 1.75rem !important;
+            }
+        }
+
+        /* Gallery */
+        .product-gallery {
+            position: sticky;
+            top: 100px;
+        }
+
+        .product-gallery__main {
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--surface-alt);
+            margin-bottom: 1rem;
+        }
+
+        .product-gallery__main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-gallery__main:hover img {
+            transform: scale(1.02);
+        }
+
+        .product-gallery__thumbs {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .product-gallery__thumb {
+            flex-shrink: 0;
+            width: 80px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .product-gallery__thumb:hover,
+        .product-gallery__thumb.active {
+            border-color: var(--primary);
+        }
+
+        .product-gallery__thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Product Info */
+        .product-info {
+            padding: 1rem 0;
+        }
+
+        .product-brand {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-model {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .product-badges {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .product-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .product-badge--kva {
+            background: var(--secondary);
+            color: var(--text-primary);
+        }
+
+        .product-badge--new {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .product-badge--used {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .product-badge--year {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .product-description {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--surface-alt);
+            border-radius: 12px;
+            border-right: 4px solid var(--primary);
+        }
+
+        /* Specs Table */
+        .product-specs {
+            margin-bottom: 2rem;
+        }
+
+        .product-specs__title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-specs__title svg {
+            color: var(--primary);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        @media (max-width: 600px) {
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        .spec-item__label {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .spec-item__value {
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        /* Features */
+        .product-features {
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+
+        @media (max-width: 600px) {
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: #e8f5e9;
+            border-radius: 8px;
+            color: #2e7d32;
+            font-weight: 500;
+        }
+
+        .feature-item svg {
+            flex-shrink: 0;
+        }
+
+        /* CTA */
+        .product-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .product-cta .btn {
+            flex: 1;
+            min-width: 200px;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            gap: 1rem;
+        }
+
+        .loading__spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Error State */
+        .error-state {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .error-state h2 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .error-state p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <img src="images/logos/logo-horizontal-white-bg.jpeg" alt="حلب الشهباء"
+                    style="height: 45px; width: auto;">
+            </a>
+
+            <ul class="nav__menu">
+                <li><a href="index.html" class="nav__link">الرئيسية</a></li>
+                <li class="nav__dropdown">
+                    <a href="generators.html" class="nav__link active">
+                        المولدات
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </a>
+                    <ul class="nav__dropdown-menu">
+                        <li><a href="generators.html#sales" class="nav__dropdown-item">بيع المولدات</a></li>
+                        <li><a href="generators.html#rental" class="nav__dropdown-item">تأجير المولدات</a></li>
+                        <li><a href="generators.html#maintenance" class="nav__dropdown-item">صيانة المولدات</a></li>
+                    </ul>
+                </li>
+                <li><a href="trucks.html" class="nav__link">المعدات الثقيلة</a></li>
+                <li><a href="about.html" class="nav__link">من نحن</a></li>
+                <li><a href="contact.html" class="nav__link">اتصل بنا</a></li>
+            </ul>
+
+            <div class="nav__actions" style="display: flex; align-items: center; gap: 1rem;">
+                <div class="lang-toggle">
+                    <button class="lang-toggle__btn active" data-lang="ar">ع</button>
+                    <button class="lang-toggle__btn" data-lang="en">EN</button>
+                </div>
+                <a href="https://wa.me/971504300221?text=مرحباً، أريد الاستفسار عن المولدات..." class="btn btn-primary"
+                    target="_blank">احصل على عرض سعر</a>
+            </div>
+
+            <button class="nav__toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- ========== PRODUCT PAGE ========== -->
+    <main class="product-page">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="index.html">الرئيسية</a>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+                <a href="generators.html">المولدات</a>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                </svg>
+                <span id="breadcrumb-title">تفاصيل المنتج</span>
+            </nav>
+
+            <!-- Loading State -->
+            <div class="loading" id="loading-state">
+                <div class="loading__spinner"></div>
+                <p>جاري تحميل بيانات المنتج...</p>
+            </div>
+
+            <!-- Error State -->
+            <div class="error-state" id="error-state" style="display: none;">
+                <h2>⚠️ المنتج غير موجود</h2>
+                <p>عذراً، لم نتمكن من العثور على هذا المنتج.</p>
+                <a href="generators.html" class="btn btn-primary">العودة للمولدات</a>
+            </div>
+
+            <!-- Product Content -->
+            <div class="product-container" id="product-content" style="display: none;">
+                <!-- Gallery -->
+                <div class="product-gallery">
+                    <div class="product-gallery__main">
+                        <img id="main-image" src="" alt="">
+                    </div>
+                    <div class="product-gallery__thumbs" id="thumbnail-container">
+                        <!-- Thumbnails will be added dynamically -->
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="product-info">
+                    <span class="product-brand" id="product-brand"></span>
+                    <h1 class="product-title" id="product-title"></h1>
+                    <p class="product-model" id="product-model"></p>
+
+                    <div class="product-badges" id="product-badges">
+                        <!-- Badges will be added dynamically -->
+                    </div>
+
+                    <p class="product-description" id="product-description"></p>
+
+                    <!-- Specifications -->
+                    <div class="product-specs">
+                        <h3 class="product-specs__title">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <path d="M3 9h18" />
+                                <path d="M9 21V9" />
+                            </svg>
+                            المواصفات الفنية
+                        </h3>
+                        <div class="specs-grid" id="specs-grid">
+                            <!-- Specs will be added dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="product-features">
+                        <h3 class="product-specs__title">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            المميزات
+                        </h3>
+                        <div class="features-list" id="features-list">
+                            <!-- Features will be added dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="product-cta">
+                        <a href="#" id="whatsapp-btn" class="btn btn-primary" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                            </svg>
+                            استفسر عبر واتساب
+                        </a>
+                        <a href="tel:+971504300221" class="btn btn-secondary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                            </svg>
+                            اتصل الآن
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="images/logos/logo-footer-banner.jpeg" alt="حلب الشهباء" class="footer__logo"
+                        style="height: 80px; width: auto; margin-bottom: 1rem; border-radius: 8px;">
+                    <p class="footer__desc">حلب الشهباء للشاحنات والمعدات الثقيلة - شريكك الموثوق في توفير حلول الطاقة
+                        والمعدات الصناعية في الإمارات.</p>
+                </div>
+                <div>
+                    <h4 class="footer__title">روابط سريعة</h4>
+                    <ul class="footer__links">
+                        <li><a href="index.html" class="footer__link">الرئيسية</a></li>
+                        <li><a href="generators.html" class="footer__link">المولدات</a></li>
+                        <li><a href="trucks.html" class="footer__link">المعدات الثقيلة</a></li>
+                        <li><a href="about.html" class="footer__link">من نحن</a></li>
+                        <li><a href="contact.html" class="footer__link">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer__title">تواصل معنا</h4>
+                    <div class="footer__contact-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3" />
+                        </svg>
+                        <a href="tel:+971504300221" style="direction: ltr; display: inline-block;">+971 50 430 0221</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2025 حلب الشهباء. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/971504300221?text=مرحباً، أريد الاستفسار عن المولدات..." target="_blank"
+            aria-label="واتساب">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+        </a>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Product Page Logic
+        document.addEventListener('DOMContentLoaded', async function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+
+            const loadingState = document.getElementById('loading-state');
+            const errorState = document.getElementById('error-state');
+            const productContent = document.getElementById('product-content');
+
+            if (!productId) {
+                showError();
+                return;
+            }
+
+            try {
+                // Inline product data to avoid CORS issues with local files
+                const productsData = {
+                    "generators": [
+                        {
+                            "id": "cummins-75kva-2020",
+                            "brand": "CUMMINS",
+                            "model": "C75D5",
+                            "kva": 75,
+                            "year": 2020,
+                            "condition": "مستعمل",
+                            "type": "صامت",
+                            "engine": "Cummins 4BTA3.9-G2",
+                            "alternator": "Stamford",
+                            "frequency": "50 Hz",
+                            "voltage": "400V / 230V",
+                            "fuelType": "ديزل",
+                            "fuelTank": "150 لتر",
+                            "runtime": "10+ ساعات",
+                            "dimensions": "2400 × 1000 × 1500 مم",
+                            "weight": "1200 كغ",
+                            "warranty": "6 أشهر",
+                            "description": "مولد CUMMINS بقدرة 75 KVA موديل 2020 بحالة ممتازة. محرك ديزل قوي وموثوق مع كابينة صامتة للاستخدام في المناطق السكنية والتجارية. تم إجراء صيانة شاملة وجاهز للتشغيل الفوري.",
+                            "features": ["كابينة صامتة عازلة للصوت", "لوحة تحكم رقمية", "نظام تشغيل تلقائي ATS", "حماية من الحمل الزائد", "مؤشر مستوى الوقود", "نظام تبريد بالماء"],
+                            "images": ["images/generators/cummins/75kva-2020/cummins-75kva-2020-01.jpg", "images/generators/cummins/75kva-2020/cummins-75kva-2020-02.jpg", "images/generators/cummins/75kva-2020/cummins-75kva-2020-03.jpg", "images/generators/cummins/75kva-2020/cummins-75kva-2020-04.jpg", "images/generators/cummins/75kva-2020/cummins-75kva-2020-05.jpg"]
+                        },
+                        {
+                            "id": "caterpillar-15kva-2020",
+                            "brand": "CATERPILLAR",
+                            "model": "DE22E3",
+                            "kva": 15,
+                            "year": 2020,
+                            "condition": "مستعمل",
+                            "type": "مفتوح",
+                            "engine": "Caterpillar C1.5",
+                            "alternator": "Leroy-Somer",
+                            "frequency": "50 Hz",
+                            "voltage": "400V / 230V",
+                            "fuelType": "ديزل",
+                            "fuelTank": "50 لتر",
+                            "runtime": "12+ ساعات",
+                            "dimensions": "1200 × 700 × 900 مم",
+                            "weight": "450 كغ",
+                            "warranty": "3 أشهر",
+                            "description": "مولد CATERPILLAR صغير الحجم بقدرة 15 KVA مثالي للاستخدامات الخفيفة والمنزلية. محرك كاتربيلر الأصلي بكفاءة عالية واستهلاك وقود اقتصادي.",
+                            "features": ["حجم صغير وسهل النقل", "محرك كاتربيلر أصلي", "استهلاك وقود اقتصادي", "صيانة سهلة", "لوحة تحكم بسيطة"],
+                            "images": ["images/generators/caterpillar/15kva-2020/cat-15kva-2020-01.jpg", "images/generators/caterpillar/15kva-2020/cat-15kva-2020-02.jpg", "images/generators/caterpillar/15kva-2020/cat-15kva-2020-03.jpg", "images/generators/caterpillar/15kva-2020/cat-15kva-2020-04.jpg", "images/generators/caterpillar/15kva-2020/cat-15kva-2020-05.jpg"]
+                        },
+                        {
+                            "id": "perkins-100kva",
+                            "brand": "PERKINS",
+                            "model": "1104A-44TG2",
+                            "kva": 100,
+                            "year": 2021,
+                            "condition": "جديد ومستعمل",
+                            "type": "صامت",
+                            "engine": "Perkins 1104A-44TG2",
+                            "alternator": "Stamford",
+                            "frequency": "50 Hz",
+                            "voltage": "400V / 230V",
+                            "fuelType": "ديزل",
+                            "fuelTank": "200 لتر",
+                            "runtime": "10+ ساعات",
+                            "dimensions": "2600 × 1100 × 1600 مم",
+                            "weight": "1500 كغ",
+                            "warranty": "سنة كاملة",
+                            "description": "مولد PERKINS بقدرة 100 KVA بكابينة صامتة عالية الجودة. متوفر جديد ومستعمل. محرك بيركنز البريطاني الشهير بموثوقيته العالية وعمره الطويل.",
+                            "features": ["كابينة صامتة فاخرة", "محرك بيركنز بريطاني", "ألترناتور ستامفورد", "لوحة تحكم DeepSea", "نظام ATS متكامل", "ضمان شامل"],
+                            "images": ["images/generators/perkins/unknown-model/perkins-01.jpg", "images/generators/perkins/unknown-model/perkins-02.jpg", "images/generators/perkins/unknown-model/perkins-03.jpg", "images/generators/perkins/unknown-model/perkins-04.jpg", "images/generators/perkins/unknown-model/perkins-05.jpg"]
+                        },
+                        {
+                            "id": "cummins-200kva-2019",
+                            "brand": "CUMMINS",
+                            "model": "C200D5",
+                            "kva": 200,
+                            "year": 2019,
+                            "condition": "مستعمل",
+                            "type": "صامت",
+                            "engine": "Cummins 6BTAA5.9-G2",
+                            "alternator": "Leroy-Somer",
+                            "frequency": "50 Hz",
+                            "voltage": "400V / 230V",
+                            "fuelType": "ديزل",
+                            "fuelTank": "400 لتر",
+                            "runtime": "12+ ساعات",
+                            "dimensions": "3200 × 1200 × 1800 مم",
+                            "weight": "2500 كغ",
+                            "warranty": "6 أشهر",
+                            "description": "مولد CUMMINS بقدرة 200 KVA موديل 2019 مناسب للمشاريع المتوسطة والكبيرة. محرك كمنز 6 سلندر قوي ومتين مع ألترناتور ليروي سومر الفرنسي.",
+                            "features": ["محرك 6 سلندر قوي", "ألترناتور ليروي سومر", "خزان وقود كبير", "نظام تشغيل تلقائي", "حماية متعددة المستويات", "سهولة الصيانة"],
+                            "images": ["images/generators/cummins/200kva-2019/cummins-200kva-2019-01.jpg", "images/generators/cummins/200kva-2019/cummins-200kva-2019-02.jpg", "images/generators/cummins/200kva-2019/cummins-200kva-2019-03.jpg", "images/generators/cummins/200kva-2019/cummins-200kva-2019-04.jpg", "images/generators/cummins/200kva-2019/cummins-200kva-2019-05.jpg"]
+                        },
+                        {
+                            "id": "iveco-625kva-2024",
+                            "brand": "IVECO",
+                            "model": "NEF67TE2",
+                            "kva": 625,
+                            "year": 2024,
+                            "condition": "جديد",
+                            "type": "مفتوح",
+                            "engine": "IVECO NEF 67TE2",
+                            "alternator": "Stamford",
+                            "frequency": "50 Hz",
+                            "voltage": "400V / 230V",
+                            "fuelType": "ديزل",
+                            "fuelTank": "800 لتر",
+                            "runtime": "8+ ساعات",
+                            "dimensions": "4500 × 1800 × 2200 مم",
+                            "weight": "5500 كغ",
+                            "warranty": "سنتان",
+                            "description": "مولد IVECO صناعي ثقيل بقدرة 625 KVA موديل 2024 جديد. مثالي للمشاريع الصناعية الكبيرة والمصانع. محرك إيفيكو الإيطالي بتقنية عالية وكفاءة ممتازة.",
+                            "features": ["محرك إيفيكو إيطالي", "قدرة صناعية عالية", "نظام تبريد متطور", "لوحة تحكم ذكية", "ضمان المصنع", "دعم فني متواصل"],
+                            "images": ["images/generators/iveco/625kva-2024/iveco-625kva-2024-01.jpg", "images/generators/iveco/625kva-2024/iveco-625kva-2024-02.jpg", "images/generators/iveco/625kva-2024/iveco-625kva-2024-03.jpg", "images/generators/iveco/625kva-2024/iveco-625kva-2024-04.jpg", "images/generators/iveco/625kva-2024/iveco-625kva-2024-05.jpg"]
+                        },
+                        {
+                            "id": "iveco-1500kva-2023",
+                            "brand": "IVECO",
+                            "model": "C87TE1D",
+                            "kva": 1500,
+                            "year": 2023,
+                            "condition": "جديد ومستعمل",
+                            "type": "مفتوح",
+                            "engine": "IVECO Cursor 87",
+                            "alternator": "Stamford HCI634",
+                            "frequency": "50 Hz",
+                            "voltage": "400V / 230V",
+                            "fuelType": "ديزل",
+                            "fuelTank": "1500 لتر",
+                            "runtime": "6+ ساعات",
+                            "dimensions": "5800 × 2200 × 2600 مم",
+                            "weight": "9000 كغ",
+                            "warranty": "سنتان",
+                            "description": "مولد IVECO صناعي ضخم بقدرة 1500 KVA للمشاريع العملاقة والمجمعات الصناعية. محرك Cursor 87 الأقوى في فئته مع ألترناتور ستامفورد الكبير.",
+                            "features": ["قدرة ضخمة 1500 KVA", "محرك Cursor 87", "ألترناتور ستامفورد HCI634", "نظام إدارة متقدم", "مراقبة عن بعد", "كفاءة وقود عالية"],
+                            "images": ["images/generators/iveco/1500kva-2023/iveco-1500kva-2023-01.jpg", "images/generators/iveco/1500kva-2023/iveco-1500kva-2023-02.jpg", "images/generators/iveco/1500kva-2023/iveco-1500kva-2023-03.jpg", "images/generators/iveco/1500kva-2023/iveco-1500kva-2023-04.jpg", "images/generators/iveco/1500kva-2023/iveco-1500kva-2023-05.jpg"]
+                        }
+                    ]
+                };
+
+                const product = productsData.generators.find(p => p.id === productId);
+
+                if (!product) {
+                    showError();
+                    return;
+                }
+
+                renderProduct(product);
+            } catch (error) {
+                console.error('Error loading product:', error);
+                showError();
+            }
+
+            function showError() {
+                loadingState.style.display = 'none';
+                errorState.style.display = 'block';
+            }
+
+            function renderProduct(product) {
+                // Hide loading, show content
+                loadingState.style.display = 'none';
+                productContent.style.display = 'grid';
+
+                // Update page title
+                document.title = `${product.brand} ${product.kva} KVA | حلب الشهباء`;
+                document.getElementById('breadcrumb-title').textContent = `${product.brand} ${product.kva} KVA`;
+
+                // Brand & Title
+                document.getElementById('product-brand').textContent = product.brand;
+                document.getElementById('product-title').textContent = `مولد ${product.brand} ${product.kva} KVA`;
+                document.getElementById('product-model').textContent = `موديل: ${product.model} | سنة الصنع: ${product.year}`;
+
+                // Badges
+                const badgesContainer = document.getElementById('product-badges');
+                badgesContainer.innerHTML = `
+                    <span class="product-badge product-badge--kva">${product.kva} KVA</span>
+                    <span class="product-badge product-badge--year">موديل ${product.year}</span>
+                    ${product.condition.includes('جديد') ? '<span class="product-badge product-badge--new">جديد</span>' : ''}
+                    ${product.condition.includes('مستعمل') ? '<span class="product-badge product-badge--used">مستعمل</span>' : ''}
+                `;
+
+                // Description
+                document.getElementById('product-description').textContent = product.description;
+
+                // Main Image
+                const mainImage = document.getElementById('main-image');
+                mainImage.src = product.images[0];
+                mainImage.alt = `${product.brand} ${product.kva} KVA`;
+
+                // Thumbnails
+                const thumbContainer = document.getElementById('thumbnail-container');
+                thumbContainer.innerHTML = product.images.map((img, index) => `
+                    <div class="product-gallery__thumb ${index === 0 ? 'active' : ''}" data-src="${img}">
+                        <img src="${img}" alt="صورة ${index + 1}">
+                    </div>
+                `).join('');
+
+                // Thumbnail click handler
+                thumbContainer.querySelectorAll('.product-gallery__thumb').forEach(thumb => {
+                    thumb.addEventListener('click', function () {
+                        mainImage.src = this.dataset.src;
+                        thumbContainer.querySelectorAll('.product-gallery__thumb').forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                });
+
+                // Specifications
+                const specsGrid = document.getElementById('specs-grid');
+                const specs = [
+                    { label: 'القدرة', value: `${product.kva} KVA` },
+                    { label: 'المحرك', value: product.engine },
+                    { label: 'الألترناتور', value: product.alternator },
+                    { label: 'التردد', value: product.frequency },
+                    { label: 'الجهد', value: product.voltage },
+                    { label: 'نوع الوقود', value: product.fuelType },
+                    { label: 'سعة الخزان', value: product.fuelTank },
+                    { label: 'وقت التشغيل', value: product.runtime },
+                    { label: 'الأبعاد', value: product.dimensions },
+                    { label: 'الوزن', value: product.weight },
+                    { label: 'النوع', value: product.type },
+                    { label: 'الضمان', value: product.warranty }
+                ];
+
+                specsGrid.innerHTML = specs.map(spec => `
+                    <div class="spec-item">
+                        <span class="spec-item__label">${spec.label}</span>
+                        <span class="spec-item__value">${spec.value}</span>
+                    </div>
+                `).join('');
+
+                // Features
+                const featuresList = document.getElementById('features-list');
+                featuresList.innerHTML = product.features.map(feature => `
+                    <div class="feature-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        ${feature}
+                    </div>
+                `).join('');
+
+                // WhatsApp Button
+                const whatsappBtn = document.getElementById('whatsapp-btn');
+                whatsappBtn.href = `https://wa.me/971504300221?text=مرحباً، أريد الاستفسار عن مولد ${product.brand} ${product.kva} KVA موديل ${product.year}`;
+            }
+        });
+    </script>
+</body>
+
+</html>
